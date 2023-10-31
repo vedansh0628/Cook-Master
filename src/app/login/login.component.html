@@ -1,0 +1,56 @@
+<div fxLayoutAlign="center center" fxFlexFill class="banner">
+    <mat-card fxFlex="30">
+        <mat-toolbar color="primary">{{getStateText()}}</mat-toolbar>
+      <div *ngIf="isLoginState()">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+            <mat-form-field>
+              <input matInput #loginEmail placeholder="Email" class="user">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="password" #loginPassword placeholder="Password">
+            </mat-form-field>
+            <button 
+              (click)="onLogin(loginEmail, loginPassword)"
+            mat-raised-button type="submit" color="warn" >Login</button>
+        </form>
+       </div>
+      <div *ngIf="isRegisterState()">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+            <mat-form-field>
+                <input matInput #registerEmail placeholder="Email" class="user">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput type="password" #registerPassword placeholder="Password">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput type="password" #registerConfirmPassword placeholder="Confirm Password">
+            </mat-form-field>
+              <button 
+                (click)="onRegisterClick(
+                  registerEmail,
+                  registerPassword,
+                  registerConfirmPassword
+                )"
+                mat-raised-button type="submit" color="warn" >Register</button>
+            </form>
+          </div>
+      <div *ngIf="isForgotPasswordState()">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+          <mat-form-field>
+            <input matInput #resetEmail placeholder="Email" class="user">
+                </mat-form-field>
+            <button (click)="onResetClick(resetEmail)"
+             mat-raised-button type="submit" color="warn" >Reset</button>
+              </form>  
+            </div>
+              <mat-card-actions align="end">
+                <button mat-raised-button
+                     (click)="onForgotPasswordClick()">Forgot Password</button>
+                <button mat-raised-button
+                     (click)="onCreateAccountClick()">Sign Up</button>
+                <button mat-raised-button
+                     (click)="onLoginClick()">Login Page</button>
+          </mat-card-actions>
+    </mat-card>
+</div>
+

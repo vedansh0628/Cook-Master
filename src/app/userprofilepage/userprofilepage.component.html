@@ -1,0 +1,31 @@
+<div class="card">
+        <div class="card_background_img"></div>
+        <div class="card_profile_img"></div>
+        <div class="user_details">
+            <h3> {{getUsername()}}</h3>
+            <h3> {{getDes()}}</h3>
+        </div>
+        <div class="card_count">
+            <div class="count">
+                <div class="likes">
+                    <h3>2</h3>
+                    <p>Likes</p>
+                </div>
+                <div class="posts">
+                    <h3>1</h3>
+                    <p>Posts</p>
+                </div>
+                <div class="comments">
+                    <h3>2</h3>
+                    <p>Comments</p>
+                </div>
+            </div>
+             <div class="btn">Follow</div>
+        </div>
+</div>
+
+<div class="banner">
+    <div id="post-feed">
+        <app-post *ngFor="let post of posts" [postData]="post"></app-post>
+    </div>
+</div>
